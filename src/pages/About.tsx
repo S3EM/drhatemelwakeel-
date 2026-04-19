@@ -1,6 +1,5 @@
-import { Facebook, Instagram, Music, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Music, Twitter, Youtube, Baby } from "lucide-react";
 import { Link } from "react-router-dom";
-import { SafeImage } from "../components/SafeImage";
 import MobileMenu from "../components/MobileMenu";
 
 export default function About({ hideNav = false }: { hideNav?: boolean } = {}) {
@@ -9,40 +8,30 @@ export default function About({ hideNav = false }: { hideNav?: boolean } = {}) {
       {/* Navigation */}
       {!hideNav && (
         <nav className="relative flex items-center justify-between py-6 px-6 lg:px-20 bg-white border-b border-gray-50 z-50">
-        
-        {/* Logo Hanging Badge (Right in RTL) */}
-        <div className="absolute top-0 right-6 lg:right-20 bg-[#65994A] text-white px-4 pb-5 pt-4 rounded-b-3xl flex flex-col items-center justify-center shadow-lg z-50 shadow-[#65994A]/20">
-          <div className="w-[60px] h-[60px] p-1 bg-white rounded-full flex items-center justify-center mb-2 overflow-hidden shadow-sm">
-            <SafeImage src="/hatem1.jpg" alt="Logo" className="w-full h-full object-cover rounded-full mix-blend-multiply opacity-90 scale-110" />
+          <div className="flex items-center gap-2 text-[#5C964A]">
+            <Baby className="w-8 h-8" />
+            <span className="font-bold text-2xl">د. حاتم الوكيل</span>
           </div>
-          <span className="font-bold text-sm whitespace-nowrap leading-tight">د. حاتم الوكيل</span>
-          <span className="text-[8px] text-white/90 whitespace-nowrap mt-1 tracking-wider">استشاري طب الأطفال وحديثي الولادة</span>
-        </div>
 
-        {/* Spacer to push links next to the absolute logo */}
-        <div className="w-[100px] lg:w-[120px]"></div>
+          <div className="hidden lg:flex items-center justify-center gap-8 font-bold text-gray-800 text-[15px] flex-1">
+            <Link to="/" className="text-gray-800 hover:text-[#5C964A] transition-colors">الرئيسية</Link>
+            <Link to="/about" className="text-[#5C964A] relative transition-colors">
+              من نحن
+              <div className="absolute -bottom-7 left-0 w-full h-[3px] bg-[#65994A] rounded-t-sm" />
+            </Link>
+            <Link to="/services" className="hover:text-[#5C964A] transition-colors">خدماتنا</Link>
+            <Link to="/services-list" className="hover:text-[#5C964A] transition-colors">قائمة الخدمات</Link>
+            <Link to="/articles" className="hover:text-[#5C964A] transition-colors">المقالات</Link>
+            <Link to="/contact" className="hover:text-[#5C964A] transition-colors">اتصل بنا</Link>
+          </div>
 
-        {/* Links (Center) */}
-        <div className="hidden lg:flex items-center justify-center gap-8 font-bold text-gray-800 text-[15px] flex-1">
-          <Link to="/" className="text-gray-800 hover:text-[#5C964A] transition-colors">الرئيسية</Link>
-          <Link to="/about" className="text-gray-800 hover:text-[#5C964A] transition-colors relative">
-            من نحن
-            <div className="absolute -bottom-7 left-0 w-full h-[3px] bg-[#65994A] rounded-t-sm" />
-          </Link>
-          <Link to="/services" className="hover:text-[#5C964A] transition-colors">خدماتنا</Link>
-          <Link to="/services-list" className="hover:text-[#5C964A] transition-colors">قائمة الخدمات</Link>
-          <Link to="/articles" className="hover:text-[#5C964A] transition-colors">المقالات</Link>
-          <Link to="/contact" className="hover:text-[#5C964A] transition-colors">اتصل بنا</Link>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <MobileMenu />
-          {/* Action Button (Left in RTL) */}
-          <Link to="/contact" className="hidden lg:block bg-[#65994A] hover:bg-[#527d3b] text-white px-8 py-2.5 rounded-full font-bold transition-colors shadow-md text-[15px]">
-            احجز استشارة
-          </Link>
-        </div>
-      </nav>
+          <div className="flex items-center gap-4">
+            <MobileMenu />
+            <Link to="/contact" className="hidden lg:block bg-[#65994A] hover:bg-[#527d3b] text-white px-8 py-2.5 rounded-full font-bold transition-colors shadow-md text-[15px]">
+              احجز استشارة
+            </Link>
+          </div>
+        </nav>
       )}
 
       {/* Hero Header section */}
@@ -63,65 +52,60 @@ export default function About({ hideNav = false }: { hideNav?: boolean } = {}) {
         <div className="container mx-auto px-6 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            {/* Text Content Block (Visual Right Side -> order-1 in RTL) */}
-            {/* Text Content Block (Visual Right Side -> order-1 in RTL) */}
+            {/* Text Content Block */}
             <div className="flex items-center justify-between lg:pr-10 lg:order-1 order-2">
               <div className="flex-1">
                 <ul className="space-y-6 list-none text-right">
                   <li className="flex items-start gap-4 text-justify">
                     <div className="w-1.5 h-1.5 mt-3 rounded-full bg-gray-400 shrink-0" />
-                    <p className="text-[#656A69] font-medium text-[15.5px] leading-relaxed">استشاري في مجال طب الأطفال وحديثي الولادة، يتمتع بخبرة واسعة في القطاعين الخاص والعام، حيث مارس الطب السريري.</p>
+                    <p className="text-[#656A69] font-medium text-[15.5px] leading-relaxed">استشاري في مجال طب الأطفال وحديثي الولادة، يتمتع بخبرة واسعة في القطاعين الخاص والعام.</p>
                   </li>
                   <li className="flex items-start gap-4 text-justify">
                     <div className="w-1.5 h-1.5 mt-3 rounded-full bg-gray-400 shrink-0" />
-                    <p className="text-[#656A69] font-medium text-[15.5px] leading-relaxed">ممارس للطب الوظيفي، يستخدم الطب الوظيفي لمساعدتك في إيجاد حلول لسبب مرضك والاختلالات الغذائية والكيميائية الحيوية التي قد تُسبب لك المرض.</p>
+                    <p className="text-[#656A69] font-medium text-[15.5px] leading-relaxed">ممارس للطب الوظيفي لمساعدتك في إيجاد حلول لسبب مرضك والاختلالات الغذائية.</p>
                   </li>
                   <li className="flex items-start gap-4 text-justify">
                     <div className="w-1.5 h-1.5 mt-3 rounded-full bg-gray-400 shrink-0" />
-                    <p className="text-[#656A69] font-medium text-[15.5px] leading-relaxed">متخصص في علاج المرضى من جميع الأعمار الذين يعانون من حساسية بروتين الطعام والاضطرابات المرتبطة بالغلوتين، بما في ذلك الداء البطني، وعدم تحمل الغلوتين، وحساسية الغلوتين.</p>
+                    <p className="text-[#656A69] font-medium text-[15.5px] leading-relaxed">متخصص في علاج حساسية بروتين الطعام والاضطرابات المرتبطة بالغلوتين لجميع الأعمار.</p>
                   </li>
                 </ul>
               </div>
 
-              {/* Decorative Circle lines on the left */}
+              {/* Decorative Circle lines */}
               <div className="hidden lg:block w-24 shrink-0 mr-12 opacity-90">
                 <div className="flex gap-2 transform rotate-[40deg]">
-                  <div className="w-1.5 h-6 bg-[#8ACC6E] rounded-full mt-12" />
-                  <div className="w-1.5 h-12 bg-[#8ACC6E] rounded-full mt-6" />
-                  <div className="w-1.5 h-16 bg-[#8ACC6E] rounded-full mt-2" />
                   <div className="w-1.5 h-20 bg-[#8ACC6E] rounded-full" />
                   <div className="w-1.5 h-16 bg-[#8ACC6E] rounded-full mt-2" />
-                  <div className="w-1.5 h-12 bg-[#8ACC6E] rounded-full mt-6" />
-                  <div className="w-1.5 h-6 bg-[#8ACC6E] rounded-full mt-12" />
+                  <div className="w-1.5 h-12 bg-[#8ACC6E] rounded-full mt-4" />
                 </div>
               </div>
             </div>
 
-            {/* Images Grid (Visual Left Side -> order-2 in RTL) */}
-            <div className="flex lg:order-2 order-1 w-full max-w-lg mx-auto">
-               
-              {/* Right Column Inside Grid (First child string RTL -> physically right) */}
-              <div className="w-[45%] flex flex-col justify-center gap-4 ml-4 mt-8 z-10">
-                <div className="rounded-xl overflow-hidden shadow-lg bg-gray-100 w-full">
-                  <SafeImage src="/chiald4.jpg" alt="Child Top Right" className="w-full h-auto object-contain" />
-                </div>
-                {/* New Child Bottom Right -> Square */}
-                <div className="rounded-xl overflow-hidden shadow-lg bg-gray-100 w-full">
-                  <SafeImage src="/chiald2.jpg" alt="Child Bottom Right" className="w-full h-auto object-contain" />
-                </div>
+            {/* Images Grid المحدثة لضمان ظهور chiald1.jpg */}
+            <div className="grid grid-cols-2 gap-4 lg:order-2 order-1 w-full max-w-lg mx-auto">
+              {/* الصورة الكبيرة الموحدة (يسار الشبكة) */}
+              <div className="col-span-1 h-full">
+                <img 
+                  src="/chiald1.jpg" 
+                  alt="Child Care 1" 
+                  className="rounded-3xl object-cover w-full h-full shadow-md border border-gray-50"
+                  onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x800/5C964A/white?text=Child+Care"; }}
+                />
               </div>
 
-              {/* Left Column Inside Grid (Second child RTL -> physically left) */}
-              <div className="flex flex-col gap-4 w-[55%]">
-                <div className="rounded-xl overflow-hidden shadow-lg bg-gray-100 w-full">
-                  <SafeImage src="/chiald1.jpg" alt="Child Top Left" className="w-full h-auto object-contain" />
-                </div>
-                
-                <div className="rounded-xl overflow-hidden shadow-lg bg-gray-100 w-full">
-                  <SafeImage src="/chiald3.jpg" alt="Child Bottom Left" className="w-full h-auto object-contain" />
-                </div>
+              {/* عمود الصورتين الصغيرتين (يمين الشبكة) */}
+              <div className="col-span-1 flex flex-col gap-4">
+                <img 
+                  src="/chiald4.jpg" 
+                  alt="Child Care 2" 
+                  className="rounded-2xl object-cover w-full h-[180px] shadow-sm"
+                />
+                <img 
+                  src="/chiald2.jpg" 
+                  alt="Child Care 3" 
+                  className="rounded-2xl object-cover w-full h-[180px] shadow-sm"
+                />
               </div>
-
             </div>
 
           </div>
@@ -129,41 +113,25 @@ export default function About({ hideNav = false }: { hideNav?: boolean } = {}) {
       </section>
 
       {/* Accreditations Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white border-t border-gray-50">
         <div className="container mx-auto px-6 lg:px-20">
-          <div className="max-w-4xl mx-auto flex justify-center">
-            
-            {/* Accreditation List */}
-            <div className="flex flex-col justify-center w-full">
-              <h2 className="text-[32px] font-bold text-[#65994A] mb-8 leading-tight text-center md:text-right">الإعتمادات</h2>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-gray-500 font-medium text-[15px] leading-relaxed text-right">
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0 mt-2.5" />
-                  <p>عضو في الجمعية الدولية لطب الأطفال (IFM)</p>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-[32px] font-bold text-[#65994A] mb-8 leading-tight text-center">الإعتمادات</h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-gray-500 font-medium text-[15px] text-right">
+              {[
+                "عضو في الجمعية الدولية لطب الأطفال (IFM)",
+                "عضو في الجمعية الأمريكية لطب الأطفال (AAAI)",
+                "عضو في الجمعية الأمريكية للطب التكاملي",
+                "ممارس للطب الوظيفي في جنوب كاليفورنيا",
+                "عضو في جمعية 2019 (IMMH)",
+                "عضو الأكاديمية الأمريكية للأطفال ذوي الاحتياجات الخاصة"
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-[#8ACC6E] rounded-full shrink-0 mt-2.5" />
+                  <p>{item}</p>
                 </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0 mt-2.5" />
-                  <p>عضو في الجمعية الأمريكية لطب الأطفال (AAAI)، والجمعية الأوروبية لطب الأطفال (EAACI)، وجامعة فلوريدا (FMU)</p>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0 mt-2.5" />
-                  <p>عضو في الجمعية الأمريكية للطب التكاملي للصحة النفسية.</p>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0 mt-2.5" />
-                  <p>ممارس للطب الوظيفي في جنوب كاليفورنيا للعلوم الصحية.</p>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0 mt-2.5" />
-                  <p>عضو في جمعية 2019 (IMMH).</p>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0 mt-2.5" />
-                  <p>عضو في الأكاديمية الأمريكية الطبية للأطفال ذوي الاحتياجات الخاصة (MAPS)</p>
-                </li>
-              </ul>
-            </div>
-
+              ))}
+            </ul>
           </div>
         </div>
       </section>
