@@ -3,7 +3,6 @@ import { X, ArrowLeft, Baby } from "lucide-react";
 import { Link } from "react-router-dom";
 import MobileMenu from "../components/MobileMenu";
 
-// مصفوفة البيانات مع التأكد من مسارات الصور
 const articlesData = [
   { id: 1, title: "نصيحة طبية 1", image: "/advice 1.jpg" },
   { id: 2, title: "نصيحة طبية 2", image: "/advice 2.jpg" },
@@ -101,12 +100,21 @@ export default function Articles({ hideNav = false }: { hideNav?: boolean }) {
         <div className="fixed inset-0 z-[999] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedArticle(null)}></div>
           <div className="relative bg-white rounded-[32px] w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col shadow-2xl">
-            <button onClick={() => setSelectedArticle(null)} className="absolute top-5 left-5 z-20 p-2 bg-white rounded-full shadow-md"><X size={24} /></button>
+            <button onClick={() => setSelectedArticle(null)} className="absolute top-5 left-5 z-20 p-2 bg-white/70 hover:bg-white rounded-full shadow-md text-gray-800 transition-colors"><X size={24} /></button>
             <div className="overflow-y-auto">
-              <img src={selectedArticle.image} alt={selectedArticle.title} className="w-full h-64 sm:h-96 object-cover" />
-              <div className="p-6 sm:p-12">
-                <h3 className="text-3xl font-bold mb-6">{selectedArticle.title}</h3>
-                <p className="text-gray-700 whitespace-pre-line leading-relaxed">{selectedArticle.content}</p>
+              <div className="w-full bg-[#111] flex items-center justify-center">
+                 <img 
+                  src={selectedArticle.image} 
+                  alt={selectedArticle.title} 
+                  className="w-full h-[350px] sm:h-[450px] object-contain sm:object-cover" 
+                />
+              </div>
+              <div className="p-6 sm:p-12 bg-white">
+                <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900">{selectedArticle.title}</h3>
+                <div className="h-1 w-20 bg-[#5C964A] mb-6 rounded-full"></div>
+                <p className="text-gray-700 whitespace-pre-line leading-relaxed text-[17px] sm:text-[18px]">
+                  {selectedArticle.content}
+                </p>
               </div>
             </div>
           </div>
