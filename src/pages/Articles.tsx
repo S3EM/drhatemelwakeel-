@@ -3,7 +3,7 @@ import { X, ArrowLeft, Baby } from "lucide-react";
 import { Link } from "react-router-dom";
 import MobileMenu from "../components/MobileMenu";
 
-// تم تعديل مصفوفة البيانات لضمان قراءة الصور من المسار الصحيح المرفوع على GitHub
+// مصفوفة البيانات مع التأكد من مسارات الصور
 const articlesData = [
   { id: 1, title: "نصيحة طبية 1", image: "/advice 1.jpg" },
   { id: 2, title: "نصيحة طبية 2", image: "/advice 2.jpg" },
@@ -26,11 +26,11 @@ const articlesData = [
   { id: 19, title: "نصيحة طبية 19", image: "/advice 19.jpg" }
 ].map(item => ({
   ...item,
-  description: `نصائح وإرشادات طبية هامة لصحة طفلك متعلقة بهذه النصيحة. اقرأ المزيد لمعرفة كل التفاصيل الطبية الدقيقة التي ستساعدك على العناية المثلى وتوفير بيئة صحية متكاملة لنموه.`,
-  content: `هذا هو النص الكامل للنصيحة الطبية الفعالة رقم ${item.id}.\n\nمتابعة صحة طفلك بشكل دوري وتطبيق النصائح الطبية الصحيحة يساهم في بناء الجسد بشكل سليم وتعزيز المناعة. نحن نضع دائمًا صحتك وصحة أطفالك في المقام الأول؛ لذا لا تتردد في حجز استشارة أو زيارة العيادة عند ملاحظة أي أعراض غير معتادة على الطفل.\n\nتذكر دائماً أن الوقاية خير من العلاج، وأن التغذية السليمة، والنوم الكافي، والالتزام بجدول التطعيمات هي الركائز الأساسية لتمتع طفلك بصحة جيدة.`
+  description: `نصائح وإرشادات طبية هامة لصحة طفلك. اقرأ المزيد لمعرفة كل التفاصيل الطبية الدقيقة التي ستساعدك على العناية المثلى.`,
+  content: `هذا هو النص الكامل للنصيحة الطبية الفعالة رقم ${item.id}.\n\nمتابعة صحة طفلك بشكل دوري وتطبيق النصائح الطبية الصحيحة يساهم في بناء الجسد بشكل سليم وتعزيز المناعة. نحن نضع دائمًا صحتك وصحة أطفالك في المقام الأول.`
 }));
 
-export default function Articles({ hideNav = false }: { hideNav?: boolean } = {}) {
+export default function Articles({ hideNav = false }: { hideNav?: boolean }) {
   const [selectedArticle, setSelectedArticle] = useState<typeof articlesData[0] | null>(null);
   const [showAllArticles, setShowAllArticles] = useState(false);
 
@@ -58,7 +58,7 @@ export default function Articles({ hideNav = false }: { hideNav?: boolean } = {}
 
           <div className="flex items-center gap-4">
             <MobileMenu />
-            <Link to="/contact" className="hidden lg:block bg-[#5C964A] hover:scale-105 text-white px-8 py-2.5 rounded-full font-semibold transition-transform" style={{ boxShadow: '0 10px 20px rgba(92, 150, 74, 0.2)' }}>
+            <Link to="/contact" className="hidden lg:block bg-[#5C964A] hover:scale-105 text-white px-8 py-2.5 rounded-full font-semibold transition-transform">
               احجز استشارة
             </Link>
           </div>
@@ -66,52 +66,23 @@ export default function Articles({ hideNav = false }: { hideNav?: boolean } = {}
       )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 lg:py-16 flex-1 w-full">
-        {!hideNav && (
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">نصائح طبية ومقالات</h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-              مجموعة من النصائح والمقالات الطبية المتخصصة في رعاية الأطفال وحديثي الولادة
-            </p>
-          </div>
-        )}
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {visibleArticles.map((article) => (
-            <div 
-              key={article.id} 
-              className="bg-white rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_30px_rgba(92,150,74,0.12)] hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col group h-full overflow-hidden"
-            >
-              <div className="h-56 w-full bg-gray-100 relative overflow-hidden shrink-0 border-b border-gray-50">
-                {/* تم استخدام img مباشرة لضمان أسرع تحميل من الـ public folder */}
+            <div key={article.id} className="bg-white rounded-[24px] shadow-sm hover:shadow-md transition-all border border-gray-100 flex flex-col overflow-hidden">
+              <div className="h-56 w-full bg-gray-100 relative">
                 <img 
                   src={article.image} 
                   alt={article.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "https://placehold.co/600x400/5C964A/white?text=د.+حاتم+الوكيل";
-                  }}
+                  className="w-full h-full object-cover"
+                  onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x400/5C964A/white?text=Image+Not+Found"; }}
                 />
-                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-[#5C964A] text-xs font-bold px-3 py-1.5 rounded-full shadow-sm z-20">
-                  مقال طبي
-                </div>
               </div>
-              
-              <div className="p-6 flex flex-col flex-1 justify-between">
-                <div>
-                  <h3 className="font-bold text-[18px] lg:text-[22px] text-gray-900 mb-3">{article.title}</h3>
-                  <p className="text-gray-500 mb-6 text-[15px] leading-relaxed line-clamp-3">
-                    {article.description}
-                  </p>
-                </div>
-                
-                <div className="pt-5 border-t border-gray-50 flex justify-end">
-                  <button 
-                    onClick={() => setSelectedArticle(article)}
-                    className="text-[#5C964A] font-bold text-[15px] flex items-center gap-2 hover:bg-[#EEF6EC] px-4 py-2.5 rounded-xl transition-colors"
-                  >
-                    اقرأ المزيد
-                    <ArrowLeft size={18} className="transition-transform group-hover:-translate-x-1" />
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="font-bold text-xl mb-3">{article.title}</h3>
+                <p className="text-gray-500 mb-6 line-clamp-3">{article.description}</p>
+                <div className="mt-auto pt-5 border-t border-gray-50 flex justify-end">
+                  <button onClick={() => setSelectedArticle(article)} className="text-[#5C964A] font-bold flex items-center gap-2">
+                    اقرأ المزيد <ArrowLeft size={18} />
                   </button>
                 </div>
               </div>
@@ -120,52 +91,22 @@ export default function Articles({ hideNav = false }: { hideNav?: boolean } = {}
         </div>
 
         <div className="flex justify-center mt-12 w-full">
-          <button 
-            onClick={() => setShowAllArticles(!showAllArticles)}
-            className={`px-10 py-3 rounded-full font-bold text-lg transition-all shadow-md active:scale-95 ${showAllArticles ? 'bg-black hover:bg-gray-800 text-white' : 'bg-[#5C964A] hover:bg-[#4a7a3b] text-white'}`}
-          >
+          <button onClick={() => setShowAllArticles(!showAllArticles)} className="px-10 py-3 rounded-full font-bold bg-[#5C964A] text-white">
             {showAllArticles ? 'عرض أقل' : 'عرض المزيد'}
           </button>
         </div>
       </div>
 
       {selectedArticle && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+        <div className="fixed inset-0 z-[999] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedArticle(null)}></div>
-          
-          <div className="relative bg-white rounded-[32px] shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col animate-in fade-in zoom-in duration-300" dir="rtl">
-            <div className="absolute top-5 left-5 z-20">
-              <button 
-                onClick={() => setSelectedArticle(null)} 
-                className="p-2 bg-white/80 hover:bg-white rounded-full shadow-lg text-gray-800 transition-colors"
-              >
-                <X size={24} />
-              </button>
-            </div>
-            
-            <div className="overflow-y-auto w-full">
-              <div className="w-full h-64 sm:h-[450px] relative">
-                <img 
-                  src={selectedArticle.image} 
-                  alt={selectedArticle.title} 
-                  className="w-full h-full object-cover" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end">
-                   <h3 className="font-bold text-2xl sm:text-4xl text-white p-6 sm:p-10 w-full">
-                     {selectedArticle.title}
-                   </h3>
-                </div>
-              </div>
-              
-              <div className="p-6 sm:p-12 bg-white">
-                <div className="max-w-3xl mx-auto">
-                  <p className="text-lg text-[#5C964A] mb-8 font-bold leading-relaxed border-r-4 border-[#5C964A] pr-5 bg-[#F7FAF6] py-5 rounded-l-2xl">
-                    {selectedArticle.description}
-                  </p>
-                  <p className="whitespace-pre-line text-[17px] sm:text-[19px] text-gray-700 leading-relaxed">
-                    {selectedArticle.content}
-                  </p>
-                </div>
+          <div className="relative bg-white rounded-[32px] w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col shadow-2xl">
+            <button onClick={() => setSelectedArticle(null)} className="absolute top-5 left-5 z-20 p-2 bg-white rounded-full shadow-md"><X size={24} /></button>
+            <div className="overflow-y-auto">
+              <img src={selectedArticle.image} alt={selectedArticle.title} className="w-full h-64 sm:h-96 object-cover" />
+              <div className="p-6 sm:p-12">
+                <h3 className="text-3xl font-bold mb-6">{selectedArticle.title}</h3>
+                <p className="text-gray-700 whitespace-pre-line leading-relaxed">{selectedArticle.content}</p>
               </div>
             </div>
           </div>
