@@ -81,22 +81,13 @@ export default function Contact({ hideNav = false }: { hideNav?: boolean } = {})
               </div>
             </div>
 
-            {/* WhatsApp Item */}
-            <div className="bg-white/80 backdrop-blur-xl p-5 rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:-translate-y-1 hover:shadow-lg transition-all flex flex-col gap-3">
-              <div className="bg-[#EAF5F0] p-3 rounded-full w-fit self-end"><MessageSquare className="text-[#5C964A]" size={22} /></div>
-              <div className="text-right">
-                <span className="block text-gray-900 font-bold text-lg mb-1">حجز أونلاين</span>
-                <p className="text-gray-400 text-sm">سيتم إضافة الرقم</p>
-              </div>
-            </div>
-
             {/* Working Hours Item */}
             <div className="bg-white/80 backdrop-blur-xl p-5 rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:-translate-y-1 hover:shadow-lg transition-all flex flex-col gap-3">
               <div className="bg-[#EAF5F0] p-3 rounded-full w-fit self-end"><Clock className="text-[#5C964A]" size={22} /></div>
               <div className="text-right">
                 <span className="block text-gray-900 font-bold text-lg mb-1">مواعيد العمل</span>
-                <p className="text-gray-500 text-[14px]">السبت - الخميس</p>
-                <p className="text-gray-500 text-[14px]">4:00 م - 10:00 م</p>
+                <p className="text-gray-500 text-[14px]">السبت - الخميس <span className="text-[#e74c3c] font-medium">(الإثنين إجازة)</span></p>
+                <p className="text-gray-500 text-[14px]">6:00 م - 11:00 م</p>
               </div>
             </div>
           </address>
@@ -132,6 +123,7 @@ export default function Contact({ hideNav = false }: { hideNav?: boolean } = {})
             <input type="hidden" name="_subject" value="رسالة جديدة من الموقع الإلكتروني" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value={typeof window !== 'undefined' ? `${window.location.origin}/contact` : 'https://your-domain.com'} />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-5 mb-5">
               <div>
