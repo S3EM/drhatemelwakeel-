@@ -6,6 +6,8 @@ import ServicesList from "./pages/ServicesList";
 import Articles from "./pages/Articles";
 import Contact from "./pages/Contact";
 import BackToTop from "./components/BackToTop";
+import WhatsAppButton from "./components/WhatsAppButton";
+import MapButton from "./components/MapButton";
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <BackToTop />
+      <MapButton />
+      <WhatsAppButton />
     </BrowserRouter>
   );
 }

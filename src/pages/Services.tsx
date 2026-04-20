@@ -45,59 +45,7 @@ export default function Services({ hideNav = false }: { hideNav?: boolean } = {}
       </nav>
       )}
 
-      {/* Affiliations Section */}
-      <section className="relative py-14 lg:py-24 bg-[#65994A] overflow-hidden">
-        {/* Subtle background overlay (simulating office background) */}
-        <div className="absolute inset-0 opacity-10 bg-black/20" />
-        <div className="relative z-10 container mx-auto px-4 lg:px-20 text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-10 lg:mb-12">
-            <span className="text-[#1D2120] block mb-2">الإنتماءات</span>
-            <span className="text-white">المهنية</span>
-          </h2>
 
-          {/* Carousel */}
-          <div className="flex items-center justify-center gap-6 md:gap-12 w-full max-w-4xl mx-auto mt-8">
-            <button className="w-10 h-10 flex items-center justify-center rounded-full bg-transparent hover:bg-white/10 text-white transition-colors">
-              <ChevronRight size={32} />
-            </button>
-            
-            <div className="flex gap-6 overflow-hidden">
-               {/* Box 1 */}
-               <div className="w-40 h-40 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center p-4">
-                  <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold text-sm mb-2 border-4 border-yellow-500 shadow-inner">
-                    CFMP
-                  </div>
-                  <span className="text-[10px] text-gray-500 font-bold leading-tight text-center uppercase">Functional Medicine<br/>Practitioner</span>
-               </div>
-
-               {/* Box 2 */}
-               <div className="w-40 h-40 bg-white rounded-lg shadow-lg flex items-center justify-center p-4 overflow-hidden relative group">
-                  <div className="flex flex-col items-center">
-                   <div className="flex gap-[1px]">
-                     <div className="w-3 h-10 bg-blue-500 transform -skew-x-[20deg]" />
-                     <div className="w-3 h-10 bg-blue-600 transform -skew-x-[20deg]" />
-                     <div className="w-3 h-10 bg-blue-700 transform -skew-x-[20deg]" />
-                     <div className="w-3 h-10 bg-blue-800 transform -skew-x-[20deg]" />
-                   </div>
-                   <span className="text-blue-900 font-black text-xl tracking-tight mt-1">AAAAI</span>
-                  </div>
-               </div>
-
-               {/* Box 3 */}
-               <div className="w-40 h-40 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center p-4 relative overflow-hidden">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-blue-700 to-blue-400 mb-2 relative">
-                    <div className="absolute inset-0 bg-white/20 rounded-full blur-[2px]" />
-                  </div>
-                  <span className="text-blue-900 font-black text-xl tracking-tighter">EAACI</span>
-               </div>
-            </div>
-
-            <button className="w-10 h-10 flex items-center justify-center rounded-full bg-transparent hover:bg-white/10 text-white transition-colors">
-              <ChevronLeft size={32} />
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* Why Choose Us Section */}
       <section className="py-14 lg:py-24 bg-white relative">
